@@ -1,0 +1,92 @@
+/* Reset CSS styles */
+*,
+*::before,
+*::after {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+/* Set root properties */
+:root {
+  --primary-color: #edf0f2;
+  --white: #ffffff;
+
+  /* Spacing system */
+  --spacing-1: 0.4rem; /* 4px */
+  --spacing-2: 0.8rem; /* 8px */
+  --spacing-3: 1.6rem; /* 16px */
+  --spacing-4: 2.4rem; /* 24px */
+  --spacing-5: 3.2rem; /* 32px */
+  --spacing-6: 4.8rem; /* 48px */
+  --spacing-7: 6.4rem; /* 64px */
+  --spacing-8: 9.6rem; /* 96px */
+  box-sizing: inherit;
+}
+
+/* Set box-sizing property for HTML */
+html {
+  box-sizing: border-box;
+}
+
+/* Set font size to 62.5% for HTML */
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-family: "Libre Franklin", sans-serif;
+  font-size: 1.6rem;
+  line-height: 1.6;
+  color: var(--primary-color);
+}
+
+main video {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  filter: brightness(50%);
+}
+
+.portfolio-hero {
+  position: absolute;
+  top: 10%;
+  right: 10%;
+  margin-top: var(--spacing-4);
+  padding: var(--spacing-5);
+  border-bottom: none;
+  border: 1px solid rgba(237, 240, 242, 0.5);
+  border-bottom: none;
+}
+
+.portfolio-hero p:first-child {
+  text-transform: uppercase;
+  font-weight: 200;
+}
+
+.portfolio-hero h1 {
+  font-size: var(--spacing-8);
+  font-weight: 700;
+  margin-top: var(--spacing-2);
+  letter-spacing: -2px;
+}
+
+.portfolio-hero span {
+  display: inline-block;
+  font-size: var(--spacing-6);
+  letter-spacing: -2px;
+  font-weight: 600;
+  margin-bottom: 24rem;
+}
+
+.portfolio-hero p:last-of-type {
+  display: flex;
+  flex-direction: row;
+  text-transform: uppercase;
+  font-weight: 600;
+  margin-bottom: var(--spacing-5);
+}
