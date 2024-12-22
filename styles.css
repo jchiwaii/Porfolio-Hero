@@ -1,47 +1,55 @@
-/* Reset CSS styles */
+/* Custom properties */
+:root {
+  /* Colors */
+  --color-primary: #edf0f2;
+  --color-white: #ffffff;
+
+  /* Font sizes */
+  --text-xs: 1.4rem;
+  --text-sm: 1.6rem;
+  --text-md: 2.4rem;
+  --text-lg: 3.2rem;
+  --text-xl: 4.8rem;
+  --text-2xl: 6.4rem;
+  --text-3xl: 9.6rem;
+
+  /* Spacing */
+  --space-1: 0.4rem;
+  --space-2: 0.8rem;
+  --space-3: 1.6rem;
+  --space-4: 2.4rem;
+  --space-5: 3.2rem;
+  --space-6: 4.8rem;
+  --space-7: 6.4rem;
+  --space-8: 9.6rem;
+}
+
+/* Reset */
 *,
 *::before,
 *::after {
-  padding: 0;
   margin: 0;
+  padding: 0;
   box-sizing: border-box;
 }
 
-/* Set root properties */
-:root {
-  --primary-color: #edf0f2;
-  --white: #ffffff;
-
-  /* Spacing system */
-  --spacing-1: 0.4rem; /* 4px */
-  --spacing-2: 0.8rem; /* 8px */
-  --spacing-3: 1.6rem; /* 16px */
-  --spacing-4: 2.4rem; /* 24px */
-  --spacing-5: 3.2rem; /* 32px */
-  --spacing-6: 4.8rem; /* 48px */
-  --spacing-7: 6.4rem; /* 64px */
-  --spacing-8: 9.6rem; /* 96px */
-  box-sizing: inherit;
-}
-
-/* Set box-sizing property for HTML */
-html {
-  box-sizing: border-box;
-}
-
-/* Set font size to 62.5% for HTML */
+/* Base styles */
 html {
   font-size: 62.5%;
+  scroll-behavior: smooth;
 }
 
 body {
   font-family: "Libre Franklin", sans-serif;
-  font-size: 1.6rem;
+  font-size: var(--text-sm);
   line-height: 1.6;
-  color: var(--primary-color);
+  color: var(--color-primary);
+  min-height: 100vh;
+  overflow-x: hidden;
 }
 
-main video {
+/* Video background */
+.video-background {
   position: fixed;
   top: 0;
   left: 0;
@@ -50,43 +58,91 @@ main video {
   object-fit: cover;
   object-position: center;
   filter: brightness(50%);
+  z-index: -1;
 }
 
+/* Portfolio hero section */
 .portfolio-hero {
   position: absolute;
-  top: 10%;
-  right: 10%;
-  margin-top: var(--spacing-4);
-  padding: var(--spacing-5);
-  border-bottom: none;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: var(--space-6);
   border: 1px solid rgba(237, 240, 242, 0.5);
   border-bottom: none;
+  width: 90%;
+  max-width: 90rem;
 }
 
-.portfolio-hero p:first-child {
+.portfolio-description {
   text-transform: uppercase;
   font-weight: 200;
+  font-size: var(--text-xs);
 }
 
-.portfolio-hero h1 {
-  font-size: var(--spacing-8);
+.portfolio-title {
+  font-size: clamp(var(--text-xl), 8vw, var(--text-3xl));
   font-weight: 700;
-  margin-top: var(--spacing-2);
-  letter-spacing: -2px;
+  margin-top: var(--space-2);
+  letter-spacing: -0.02em;
+  line-height: 1.1;
 }
 
-.portfolio-hero span {
+.portfolio-subtitle {
   display: inline-block;
-  font-size: var(--spacing-6);
-  letter-spacing: -2px;
+  font-size: clamp(var(--text-lg), 5vw, var(--text-2xl));
+  letter-spacing: -0.02em;
   font-weight: 600;
-  margin-bottom: 24rem;
+  margin-bottom: var(--space-7);
 }
 
-.portfolio-hero p:last-of-type {
-  display: flex;
-  flex-direction: row;
+.portfolio-info {
   text-transform: uppercase;
   font-weight: 600;
-  margin-bottom: var(--spacing-5);
+  position: relative;
+  margin-bottom: var(--space-8);
+}
+
+.portfolio-info .arrow {
+  display: inline-block;
+  position: absolute;
+  right: 0;
+  bottom: -150%;
+  font-size: clamp(var(--text-xl), 6vw, var(--text-3xl));
+  transition: transform 0.3s ease;
+}
+
+.portfolio-info .arrow:hover {
+  transform: translateY(1rem);
+}
+
+/* Media Queries */
+@media screen and (max-width: 768px) {
+  .portfolio-hero {
+    margin: var(--space-4) var(--space-3);
+    padding: var(--space-4);
+  }
+
+  .portfolio-subtitle {
+    margin-bottom: var(--space-6);
+  }
+
+  .portfolio-info {
+    margin-bottom: var(--space-6);
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .portfolio-hero {
+    margin: var(--space-3) var(--space-2);
+    padding: var(--space-3);
+  }
+
+  .portfolio-description {
+    font-size: 1.2rem;
+  }
+
+  .portfolio-subtitle {
+    margin-bottom: var(--space-5);
+  }
 }
